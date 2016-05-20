@@ -9,20 +9,21 @@ namespace StockVizForms
         public App ()
         {
             // The root page of your application
-            var content = new ContentPage {
-                Title = "StockVizForms",
-                Content = new StackLayout {
-                    VerticalOptions = LayoutOptions.Center,
-                    Children = {
-                        new Label {
-                            HorizontalTextAlignment = TextAlignment.Center,
-                            Text = "Welcome to Xamarin Forms!"
-                        }
-                    }
-                }
-            };
+            //var content = new ContentPage {
+            //    Title = "StockVizForms",
+            //    Content = new StackLayout {
+            //        VerticalOptions = LayoutOptions.Center,
+            //        Children = {
+            //            new Label {
+            //                HorizontalTextAlignment = TextAlignment.Center,
+            //                Text = "Welcome to Xamarin Forms!"
+            //            }
+            //        }
+            //    }
+            //};
+            //MainPage = new NavigationPage (content);
 
-            MainPage = new NavigationPage (content);
+            MainPage = new NavigationPage (new SearchStockPage());
         }
 
         protected override void OnStart ()
