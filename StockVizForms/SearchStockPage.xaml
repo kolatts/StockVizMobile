@@ -2,9 +2,7 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="StockVizForms.SearchStockPage" Title="StockVizForms">
 	<ContentPage.Content>
 		<StackLayout VerticalOptions="Center">
-		<Label HorizontalOptions="Center">
-		Welcome to Xamarin Forms : StockViz!
-			</Label> 
+			<SearchBar x:Name="StockSearchBar" Placeholder="Enter stock symbol" />
 		</StackLayout>
 	</ContentPage.Content>
 </ContentPage>
