@@ -37,6 +37,10 @@
     </Compile>
     <Compile Include="StockManager.cs" />
     <Compile Include="Model\Stock.cs" />
+    <Compile Include="StockDetailPage.xaml.cs">
+      <DependentUpon>StockDetailPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Model\StockDayQuote.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Xamarin.Forms.Core">
@@ -69,6 +73,9 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="SearchStockPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="StockDetailPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
   </ItemGroup>

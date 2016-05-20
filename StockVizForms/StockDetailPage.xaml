@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="StockVizForms.StockDetailPage">
+	<ContentPage.Content>
+		<StackLayout Orientation="Vertical">
+			<StackLayout Orientation="Horizontal">
+				<Label x:Name="StockName" />
+				<Label x:Name="StockSymbol" />
+			</StackLayout>
+			<StackLayout Orientation="Horizontal">
+				<Label Text="Type:" />
+				<Label x:Name="StockTypeDisplay" />
+			</StackLayout>
+			<StackLayout Orientation="Horizontal">
+				<Label Text="Traded on:" />
+				<Label x:Name="StockExchangeDisplay" />
+			</StackLayout>
+			<ListView x:Name="HistoryList">
+			<ListView.ItemTemplate>
+				<DataTemplate>
+                    <ViewCell>
+                        <StackLayout Orientation="Vertical">
+                            <StackLayout Orientation="Horizontal">
+                                <Label Text="{Binding Date, StringFormat='{0:d}'}"
+                                TextColor="#f35e20" 
+								HorizontalOptions="StartAndExpand" />
+                                <Label Text="{Binding AdjustedClose}"
+                                HorizontalOptions="EndAndExpand"
+                                TextColor="#503026" />
+                            </StackLayout>
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+			</ListView>
+		</StackLayout>
+	</ContentPage.Content>
+</ContentPage>
