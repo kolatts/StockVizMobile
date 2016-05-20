@@ -10,7 +10,6 @@ namespace StockVizForms
     public partial class SearchStockPage : ContentPage
     {
         private StockManager _manager;
-        private List<Stock> stocks;
 
         public SearchStockPage ()
         {
@@ -18,8 +17,8 @@ namespace StockVizForms
             _manager = new StockManager ();
 
             this.StockSearchBar.SearchCommand 
-                = new Command ( () => {
-                    stocks = _manager.GetStocks (StockSearchBar.Text);
+                = new Command ( async () => {
+                SearchResults.ItemsSource = await _manager.GetStocks (StockSearchBar.Text);
             });
         }
 

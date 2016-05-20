@@ -3,6 +3,24 @@
 	<ContentPage.Content>
 		<StackLayout VerticalOptions="Center">
 			<SearchBar x:Name="StockSearchBar" Placeholder="Enter stock symbol" />
+			<ListView x:Name="SearchResults">
+			<ListView.ItemTemplate>
+				<DataTemplate>
+                    <ViewCell>
+                        <StackLayout Orientation="Vertical">
+                            <StackLayout Orientation="Horizontal">
+                                <Label Text="{Binding Name}"
+                                TextColor="#f35e20" 
+								HorizontalOptions="StartAndExpand" />
+                                <Label Text="{Binding Symbol}"
+                                HorizontalOptions="EndAndExpand"
+                                TextColor="#503026" />
+                            </StackLayout>
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+			</ListView>
 		</StackLayout>
 	</ContentPage.Content>
 </ContentPage>

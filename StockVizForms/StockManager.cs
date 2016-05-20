@@ -2,6 +2,7 @@
 using StockVizForms.Model;
 using System.Net.Http;
 using ModernHttpClient;
+using System.Threading.Tasks;
 using System.Collections.Generic;
 
 namespace StockVizForms
@@ -12,7 +13,7 @@ namespace StockVizForms
         {
         }
 
-        public List<Stock> GetStocks (string symbol)
+        public async Task<List<Stock>> GetStocks (string symbol)
         {
             List<Stock> result = null;
             var url = $"http://d.yimg.com/autoc.finance.yahoo.com/autoc?query={symbol}&" +
@@ -20,9 +21,9 @@ namespace StockVizForms
 
             using (var client = GetClient(url))
             {
-                 var responseString = client.GetStringAsync(string.Empty).Result;
+                var responseString = await client.GetStringAsync(string.Empty);
                 var response = Newtonsoft.Json.JsonConvert.DeserializeObject<YahooStockLookupResult> (responseString);
-                result = response.ResultSet.Result;
+                result =  response.ResultSet.Result;
             }
             return result;
         }
