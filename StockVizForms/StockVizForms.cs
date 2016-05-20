@@ -1,6 +1,8 @@
 ﻿using System;
 
 using Xamarin.Forms;
+using System.Reactive.Linq;   // IMPORTANT - this makes await work!
+using Akavache;
 
 namespace StockVizForms
 {
@@ -8,6 +10,13 @@ namespace StockVizForms
     {
         public App ()
         {
+
+
+            // Make sure you set the application name before doing any inserts or gets
+            BlobCache.ApplicationName = "StockVizForms";
+
+            // Using async/await
+            //var toaster = await BlobCache.UserAccount.GetObject<Toaster> ("toaster");
             // The root page of your application
             //var content = new ContentPage {
             //    Title = "StockVizForms",
@@ -22,8 +31,13 @@ namespace StockVizForms
             //    }
             //};
             //MainPage = new NavigationPage (content);
+            var tabbedPage = new TabbedPage () {
+                Title = "Stocks!"
+            };
 
-            MainPage = new NavigationPage (new SearchStockPage());
+            tabbedPage.Children.Add (new SearchStockPage ());
+            tabbedPage.Children.Add (new FavoriteStocksPage ());
+            MainPage = new NavigationPage (tabbedPage);
         }
 
         protected override void OnStart ()

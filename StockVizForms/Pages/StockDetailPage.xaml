@@ -14,6 +14,7 @@
 				<Label Text="Traded on:" />
 				<Label x:Name="StockExchangeDisplay" />
 			</StackLayout>
+			<Button x:Name="AddRemoveStock" />
 			<ListView x:Name="HistoryList">
 			<ListView.ItemTemplate>
 				<DataTemplate>

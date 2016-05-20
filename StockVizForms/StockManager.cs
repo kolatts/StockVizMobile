@@ -5,13 +5,16 @@ using ModernHttpClient;
 using System.Threading.Tasks;
 using System.Collections.Generic;
 using System.Linq;
-
+using Akavache;
+using System.Reactive.Linq;
 namespace StockVizForms
 {
     public class StockManager
     {
+        private IFavoriteStocksRepository _repo;
         public StockManager ()
         {
+            _repo = new AvakacheFavoriteStocksRepository ();
         }
 
         public async Task<List<Stock>> GetStocks (string symbol)
@@ -24,7 +27,7 @@ namespace StockVizForms
             {
                 var responseString = await client.GetStringAsync(string.Empty);
                 var response = Newtonsoft.Json.JsonConvert.DeserializeObject<YahooStockLookupResult> (responseString);
-                result =  response.ResultSet.Result;
+                result =  response.ResultSet.Result.Where(x=>x.TypeDisp == "Equity" && "NYSE,NASDAQ".Contains(x.ExchDisp)).ToList()  ;
             }
             return result;
         }
@@ -47,6 +50,8 @@ namespace StockVizForms
             }
             return result;
         }
+
+
 
         protected List<StockDayQuote> DeserializeCsv (string responseString, string symbol)
         {
@@ -71,11 +76,32 @@ namespace StockVizForms
                 .ToList();
         }
 
+
         protected HttpClient GetClient (string url)
         {
             return new HttpClient (new NativeMessageHandler ()) {
                 BaseAddress = new Uri (url),
             };
+        }
+
+        public Task StoreStock (Stock stock)
+        {
+            return _repo.StoreStock (stock);
+        }
+
+        public Task<List<Stock>> GetFavoriteStocks ()
+        {
+            return _repo.GetFavoriteStocks ();
+        }
+
+        public Task DeleteFavoriteStock (string symbol)
+        {
+            return _repo.DeleteFavoriteStock (symbol);
+        }
+
+        public Task<Stock> GetFavoriteStock (string symbol)
+        {
+            return _repo.GetFavoriteStock (symbol);
         }
     }
 }
