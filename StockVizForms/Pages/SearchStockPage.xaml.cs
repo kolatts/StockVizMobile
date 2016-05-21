@@ -25,7 +25,6 @@ namespace StockVizForms
 
         public async void OnSelection (object sender, SelectedItemChangedEventArgs e)
         {
-            SearchResults.ItemSelected -= OnSelection;
 
             if (e.SelectedItem == null) {
                 return; //ItemSelected is called on deselection, which results in SelectedItem being set to null
