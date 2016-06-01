@@ -1,10 +1,11 @@
 ﻿using Microsoft.Azure.Mobile.Server;
 using Microsoft.Azure.Mobile.Server.Tables;
-using StockVizForms.Model;
+using StockVizForms.Entities;
 using StockVizMobileService.DataObjects;
 using System.Data.Entity;
 using System.Data.Entity.ModelConfiguration.Conventions;
 using System.Linq;
+using Stock = StockVizMobileService.DataObjects.Stock;
 
 namespace StockVizMobileService.Models
 {
@@ -24,6 +25,7 @@ namespace StockVizMobileService.Models
         }
 
         public DbSet<TodoItem> TodoItems { get; set; }
+
         public DbSet<Stock> Stocks { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)

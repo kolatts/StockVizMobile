@@ -127,9 +127,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\StockVizForms\StockVizForms.csproj">
+    <ProjectReference Include="..\StockVizForms\StockVizForms.Mobile.csproj">
       <Project>{55063882-91C5-41D9-811F-28659A9830A7}</Project>
-      <Name>StockVizForms</Name>
+      <Name>StockVizForms.Mobile</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

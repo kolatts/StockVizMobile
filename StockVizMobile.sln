@@ -2,7 +2,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.25123.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StockVizForms", "StockVizForms\StockVizForms.csproj", "{55063882-91C5-41D9-811F-28659A9830A7}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StockVizForms.Mobile", "StockVizForms\StockVizForms.Mobile.csproj", "{55063882-91C5-41D9-811F-28659A9830A7}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StockVizForms.iOS", "iOS\StockVizForms.iOS.csproj", "{07D03C67-DD06-49ED-93CF-09CE79673603}"
 EndProject
@@ -10,7 +10,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StockVizForms.Droid", "Droi
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StockVizForms.Model", "StockVizForms.Model\StockVizForms.Model.csproj", "{108C961E-1BDB-4B0A-A288-A15B7C88AE25}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StockVizMobileService", "StockVizMobileService\StockVizMobileService.csproj", "{209FA716-A7AD-4095-BD70-C8710FC66FA7}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StockVizForms.Azure", "StockVizMobileService\StockVizForms.Azure.csproj", "{209FA716-A7AD-4095-BD70-C8710FC66FA7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 
 namespace StockVizForms.Model
@@ -8,6 +9,15 @@ namespace StockVizForms.Model
     /// </summary>
     public class Stock
     {
+        private string id;
+
+        [JsonProperty(PropertyName = "id")]
+        public string Id
+        {
+            get { return id; }
+            set { id = value; }
+        }
+
         public string Symbol { get; set; }
         public string Name { get; set; }
         public string Exch { get; set; }
@@ -15,7 +25,7 @@ namespace StockVizForms.Model
         public string ExchDisp { get; set; }
         public string TypeDisp { get; set; }
 
-        public Stock ()
+        public Stock()
         {
         }
     }
@@ -31,4 +41,3 @@ namespace StockVizForms.Model
         public List<Stock> Result { get; set; }
     }
 }
-
